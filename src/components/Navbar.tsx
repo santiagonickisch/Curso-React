@@ -1,4 +1,4 @@
-import styles from './Navbar.module.css'; // Importa los estilos como un objeto
+import styles from './Navbar.module.css'; 
 
 function Navbar() {
   return (
