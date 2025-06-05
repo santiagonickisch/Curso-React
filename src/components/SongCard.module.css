@@ -1,0 +1,64 @@
+/* src/components/SongCard.module.css */
+.card {
+  border: 1px solid #eee;
+  border-radius: 12px; /* Bordes más redondeados */
+  padding: 20px;
+  margin: 15px; /* Más espacio entre tarjetas */
+  display: flex;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Sombra mejorada */
+  width: calc(33.333% - 30px); /* Para 3 columnas, restando los márgenes */
+  min-width: 250px; /* Ancho mínimo para buena legibilidad */
+  flex-direction: column;
+  text-align: center;
+  transition: transform 0.2s ease-in-out; /* Animación al pasar el mouse */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+}
+
+.image {
+  width: 140px; /* Un poco más grandes */
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #ddd; /* Borde sutil alrededor de la imagen */
+}
+
+.title {
+  margin: 8px 0 4px 0;
+  font-size: 1.3em;
+  color: #333;
+}
+
+.artist {
+  margin: 0 0 5px 0;
+  color: #666;
+  font-size: 1em;
+}
+
+.duration {
+  margin: 0;
+  color: #888;
+  font-size: 0.85em;
+}
+
+.button {
+  background-color: #1ed760; /* Color de Spotify */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px; /* Botón más redondeado */
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: #1aa34a; /* Color más oscuro al pasar el mouse */
+}

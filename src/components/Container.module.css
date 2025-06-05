@@ -1,0 +1,10 @@
+/* src/components/Container.module.css */
+.container {
+  padding: 16px;
+  background-color: #f8f8f8; /* Un gris aún más claro */
+  border-radius: 10px; /* Bordes un poco más redondeados */
+  margin: 20px auto;
+  max-width: 960px; /* Un poco más ancho */
+  width: calc(100% - 40px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+}
