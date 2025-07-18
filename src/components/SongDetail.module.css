@@ -1,0 +1,80 @@
+.songDetailCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: center;
+}
+
+.songImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 25px;
+  border: 3px solid #eee;
+}
+
+.songInfo h2 {
+  font-size: 2.2em;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.songInfo p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.songInfo strong {
+  color: #34495e;
+}
+
+.errorMessage {
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+.backButton {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 25px;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.backButton:hover {
+  background-color: #2980b9;
+}
+
+/* ESTILO PARA EL BOTÓN DE AÑADIR A PLAYLIST */
+.addToListButton {
+  position: absolute;
+  top: 10px;
+  left: 10px; /* Posicionarlo en la esquina superior izquierda */
+  background: none;
+  border: none;
+  font-size: 1.8em;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.2s ease-in-out;
+  z-index: 10;
+  color: #3498db; /* Un color azul para diferenciarlo del corazón */
+}
+
+.addToListButton:hover {
+  transform: scale(1.1);
+}

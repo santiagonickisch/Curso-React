@@ -1,12 +1,17 @@
-.navbar {
-  background-color: #222;
-  color: white;
-  padding: 1rem;
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 30px; 
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .title {
-  margin: 0;
-  font-size: 2em;
+  font-size: 2em; 
+  color: #333; 
+  margin-bottom: 25px; 
+  border-bottom: 2px solid #eee; 
+  padding-bottom: 15px; 
 }

@@ -1,13 +1,15 @@
 import React from 'react';
-import styles from './Container.module.css'; 
+import styles from './Container.module.css';
 
-type ContainerProps = {
-  children: React.ReactNode;
-};
+interface ContainerProps {
+  title?: string; 
+  children: React.ReactNode; 
+}
 
-const Container = ({ children }: ContainerProps) => {
+const Container: React.FC<ContainerProps> = ({ title, children }) => {
   return (
     <div className={styles.container}>
+      {title && <h2 className={styles.title}>{title}</h2>}
       {children}
     </div>
   );
