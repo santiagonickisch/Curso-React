@@ -59,11 +59,10 @@
   background-color: #2980b9;
 }
 
-/* ESTILO PARA EL BOTÓN DE AÑADIR A PLAYLIST */
 .addToListButton {
   position: absolute;
   top: 10px;
-  left: 10px; /* Posicionarlo en la esquina superior izquierda */
+  left: 10px; 
   background: none;
   border: none;
   font-size: 1.8em;
@@ -72,7 +71,7 @@
   line-height: 1;
   transition: transform 0.2s ease-in-out;
   z-index: 10;
-  color: #3498db; /* Un color azul para diferenciarlo del corazón */
+  color: #3498db; 
 }
 
 .addToListButton:hover {

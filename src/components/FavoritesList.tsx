@@ -1,19 +1,18 @@
-// src/components/FavoritesList.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Container from './Container';
 import SongCard from './SongCard';
-import { type Song } from '../data/mockSongs'; // Asegúrate de importar 'type Song'
+import { type Song } from '../App';
 import styles from './FavoritesList.module.css';
 
 interface FavoritesListProps {
   favoriteSongs: Song[];
   onToggleFavorite: (song: Song) => void;
-  isSongFavorite: (songId: string) => boolean;
-  onAddToList: (song: Song) => void; // <-- AÑADIDO ESTO
+  isSongFavorite: (songId: number) => boolean;
+  onAddToList: (song: Song) => void;
 }
 
-const FavoritesList: React.FC<FavoritesListProps> = ({ favoriteSongs, onToggleFavorite, isSongFavorite, onAddToList }) => { // <-- RECIBE LA NUEVA PROP
+const FavoritesList: React.FC<FavoritesListProps> = ({ favoriteSongs, onToggleFavorite, isSongFavorite, onAddToList }) => { 
   return (
     <Container title="Mis Canciones Favoritas">
       {favoriteSongs.length === 0 ? (
@@ -29,7 +28,7 @@ const FavoritesList: React.FC<FavoritesListProps> = ({ favoriteSongs, onToggleFa
               song={song}
               onToggleFavorite={onToggleFavorite}
               isFavorite={isSongFavorite(song.id)}
-              onAddToList={onAddToList} // <-- Asegúrate de pasarla aquí también
+              onAddToList={onAddToList} 
             />
           ))}
         </div>
