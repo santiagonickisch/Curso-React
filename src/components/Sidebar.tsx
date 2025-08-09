@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styles from './Sidebar.module.css';
 import PlaylistForm from './PlaylistForm';
-import type { Playlist } from '../App'; 
+import type { Playlist } from '../App';
+import { Link } from 'react-router-dom';
 
 type SidebarProps = {
   onAddPlaylist: (name: string, description: string) => void;
@@ -29,6 +30,14 @@ const Sidebar = ({ onAddPlaylist, playlists }: SidebarProps) => {
         {isFormVisible ? 'Cancelar' : 'Nueva playlist'}
       </button>
 
+      <Link to="/create-song" className={styles.createSongButton}>
+        Crear nueva canción
+      </Link>
+      
+      <Link to="/favoritos" className={styles.favoritesButton}>
+        Ir a mis favoritos
+      </Link>
+      
       {isFormVisible && (
         <PlaylistForm
           onSubmit={handlePlaylistSubmit}
@@ -38,7 +47,7 @@ const Sidebar = ({ onAddPlaylist, playlists }: SidebarProps) => {
 
       <div className={styles.playlistsList}>
         {playlists.length > 0 ? (
-          <> 
+          <>
             <h3>Mis Playlists</h3>
             <ul>
               {playlists.map((playlist) => (

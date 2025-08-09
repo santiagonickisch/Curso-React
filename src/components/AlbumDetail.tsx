@@ -7,25 +7,25 @@ import { useQuery } from '@tanstack/react-query';
 import { musicService } from '../services/musicService';
 import { type Song } from '../App';
 
-interface CategorySongsProps {
+interface AlbumDetailProps {
   onToggleFavorite: (song: Song) => void;
   isSongFavorite: (songId: number) => boolean;
   onAddToList: (song: Song) => void;
 }
 
-const CategorySongs: React.FC<CategorySongsProps> = ({ onToggleFavorite, isSongFavorite, onAddToList }) => {
+const AlbumDetail: React.FC<AlbumDetailProps> = ({ onToggleFavorite, isSongFavorite, onAddToList }) => {
   const { id } = useParams<{ id: string }>();
 
-  const { data: filteredSongs, isLoading, isError, error } = useQuery({
-    queryKey: ['songsByCategory', id],
-    queryFn: () => musicService.getSongsByCategory(id!),
-    enabled: !!id,
+  const { data: songs, isLoading, isError, error } = useQuery({
+    queryKey: ['songsByAlbum', id], 
+    queryFn: () => musicService.getSongsByAlbum(id!), 
+    enabled: !!id, 
   });
 
   if (isLoading) {
     return (
-      <Container title={`Cargando canciones de ${id}...`}>
-        <p>Cargando...</p>
+      <Container title={`Cargando álbum "${id}"...`}>
+        <p>Cargando canciones...</p>
       </Container>
     );
   }
@@ -33,24 +33,24 @@ const CategorySongs: React.FC<CategorySongsProps> = ({ onToggleFavorite, isSongF
   if (isError) {
     return (
       <Container title="Error">
-        <p className={styles.noSongsMessage}>Error al cargar las canciones: {(error as Error).message}</p>
+        <p className={styles.noSongsMessage}>Error al cargar las canciones del álbum: {(error as Error).message}</p>
       </Container>
     );
   }
 
-  if (!filteredSongs || filteredSongs.length === 0) {
+  if (!songs || songs.length === 0) {
     return (
-      <Container title={`Categoría: "${id || 'Desconocida'}"`}>
-        <p className={styles.noSongsMessage}>No se encontraron canciones para la categoría "{id}".</p>
+      <Container title={`Álbum: "${id || 'Desconocido'}"`}>
+        <p className={styles.noSongsMessage}>No se encontraron canciones para el álbum "{id}".</p>
         <Link to="/" className={styles.backButton}>Volver a la Lista de Canciones</Link>
       </Container>
     );
   }
 
   return (
-    <Container title={`Canciones de ${id}`}>
+    <Container title={`Canciones de: ${id}`}>
       <div className={styles.songGrid}>
-        {filteredSongs.map((song: Song) => (
+        {songs.map((song: Song) => (
           <SongCard
             key={song.id}
             song={song}
@@ -65,4 +65,4 @@ const CategorySongs: React.FC<CategorySongsProps> = ({ onToggleFavorite, isSongF
   );
 };
 
-export default CategorySongs;
+export default AlbumDetail;

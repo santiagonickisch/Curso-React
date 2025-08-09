@@ -1,99 +1,80 @@
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif; 
-  background-color: #f4f7f6; 
-  color: #333;
+  font-family: 'Roboto', sans-serif;
+  background-color: #1a1a1a; /* Fondo principal, un gris oscuro */
+  color: #e0e0e0;
 }
 
 #root {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 .App {
   display: flex;
-  flex-direction: column;
   min-height: 100vh;
-  background-color: #f4f7f6; 
+  background-color: #1a1a1a;
 }
 
 .main-content-area {
-  padding: 30px; 
-  background-color: #f4f7f6; 
+    padding: 30px;
+    width: 100%;
+    overflow-y: auto;
+    background-color: #282828;
 }
 
-.app-nav-links {
+.song-list {
   display: flex;
-  justify-content: center;
-  gap: 20px; 
-  margin-top: 30px; 
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.app-nav-links a {
-  display: inline-block;
-  padding: 12px 25px;
-  background-color: #4CAF50; 
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-.app-nav-links a:hover {
-  background-color: #45a049; 
-  transform: translateY(-2px); 
-}
-
-/* ESTILOS PARA EL MODAL DE AÑADIR A PLAYLIST */
+/* Estilos de los modales */
 .add-to-playlist-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Asegura que esté por encima de todo */
+  z-index: 1000;
 }
 
 .add-to-playlist-modal {
-  background-color: #fff;
+  background-color: #333333; /* Fondo más oscuro para el modal */
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
   width: 90%;
-  max-width: 450px; /* Ancho máximo del modal */
+  max-width: 450px;
   text-align: center;
   position: relative;
 }
 
 .add-to-playlist-modal h3 {
   font-size: 1.8em;
-  color: #333;
+  color: #fff;
   margin-bottom: 25px;
 }
 
 .add-to-playlist-modal p {
   font-size: 1.1em;
-  color: #666;
+  color: #b3b3b3;
   margin-bottom: 20px;
 }
 
 .playlist-selection-grid {
   display: flex;
-  flex-direction: column; /* Apila los botones verticalmente */
-  gap: 10px; /* Espacio entre los botones */
+  flex-direction: column;
+  gap: 10px;
   margin-bottom: 25px;
 }
 
 .playlist-selection-button {
-  background-color: #28a745; /* Un verde más oscuro para los botones de playlist */
+  background-color: #1E88E5;
   color: white;
   border: none;
   padding: 12px 20px;
@@ -106,12 +87,12 @@ body {
 }
 
 .playlist-selection-button:hover {
-  background-color: #218838;
+  background-color: #1565C0;
   transform: translateY(-2px);
 }
 
 .modal-close-button {
-  background-color: #dc3545; /* Rojo para el botón de cerrar */
+  background-color: #dc3545;
   color: white;
   border: none;
   padding: 10px 20px;

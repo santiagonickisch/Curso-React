@@ -1,13 +1,34 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom'; 
+import { useParams, Link } from 'react-router-dom';
 import Container from './Container';
-import { mockSongs, type Song } from '../data/mockSongs'; 
-import styles from './SongDetail.module.css'; 
+import styles from './SongDetail.module.css';
+import { useQuery } from '@tanstack/react-query';
+import { musicService } from '../services/musicService';
 
 const SongDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
 
-  const song = mockSongs.find((s: Song) => s.id === id);
+  const { data: song, isLoading, isError, error } = useQuery({
+    queryKey: ['song', id],
+    queryFn: () => musicService.getSongById(id!),
+    enabled: !!id,
+  });
+
+  if (isLoading) {
+    return (
+      <Container title="Cargando...">
+        <p>Cargando detalles de la canción...</p>
+      </Container>
+    );
+  }
+
+  if (isError) {
+    return (
+      <Container title="Error">
+        <p className={styles.errorMessage}>Error: {(error as Error).message}</p>
+      </Container>
+    );
+  }
 
   if (!song) {
     return (
@@ -27,6 +48,7 @@ const SongDetail: React.FC = () => {
           <p><strong>Artista:</strong> {song.artist}</p>
           <p><strong>Duración:</strong> {song.duration}</p>
           <p><strong>Categoría:</strong> {song.category}</p>
+          <p><strong>Álbum:</strong> {song.album}</p>
         </div>
         <Link to="/" className={styles.backButton}>Volver a la Lista de Canciones</Link>
       </div>

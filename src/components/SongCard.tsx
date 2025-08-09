@@ -1,17 +1,16 @@
-// src/components/SongCard.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './SongCard.module.css';
-import { type Song } from '../data/mockSongs';
+import { type Song } from '../App';
 
 interface SongCardProps {
   song: Song;
   onToggleFavorite: (song: Song) => void;
   isFavorite: boolean;
-  onAddToList: (song: Song) => void; // <-- NUEVA PROP: Función para añadir a playlist
+  onAddToList: (song: Song) => void; 
 }
 
-const SongCard: React.FC<SongCardProps> = ({ song, onToggleFavorite, isFavorite, onAddToList }) => { // <-- RECIBE LA NUEVA PROP
+const SongCard: React.FC<SongCardProps> = ({ song, onToggleFavorite, isFavorite, onAddToList }) => {
   return (
     <div className={styles.songCard}>
       <img src={song.imageUrl} alt={song.title} className={styles.songImage} />
@@ -24,7 +23,6 @@ const SongCard: React.FC<SongCardProps> = ({ song, onToggleFavorite, isFavorite,
         <p className={styles.songArtist}>{song.artist}</p>
         <p className={styles.songDuration}>{song.duration}</p>
       </div>
-      {/* BOTÓN/ICONO DE FAVORITO */}
       <button
         onClick={() => onToggleFavorite(song)}
         className={`${styles.favoriteButton} ${isFavorite ? styles.isFavorite : ''}`}
@@ -32,13 +30,12 @@ const SongCard: React.FC<SongCardProps> = ({ song, onToggleFavorite, isFavorite,
       >
         {isFavorite ? '❤️' : '🤍'}
       </button>
-      {/* BOTÓN PARA AÑADIR A PLAYLIST */}
       <button
-        onClick={() => onAddToList(song)} // Llama a la función recibida por props
-        className={styles.addToListButton} // Crearemos este estilo
+        onClick={() => onAddToList(song)} 
+        className={styles.addToListButton} 
         aria-label="Añadir a playlist"
       >
-        ➕ {/* Un icono simple de "más" */}
+        ➕ 
       </button>
     </div>
   );

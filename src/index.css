@@ -1,9 +1,12 @@
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; 
-  width: 100%; 
-  min-height: 100vh; 
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif; /* Aplicar la fuente Roboto */
+  background-color: #F5F5F5; /* Fondo principal gris claro */
+  color: #333; /* Color de texto predeterminado */
 }
 
 html {
